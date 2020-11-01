@@ -1,6 +1,10 @@
 <template>
   <main class="container mx-auto px-2 md:px-4">
-    About
+    <img
+      src="@/assets/images/about-us.gif"
+      alt="About us"
+      class="mx-auto"
+    >
   </main>
 </template>
 
