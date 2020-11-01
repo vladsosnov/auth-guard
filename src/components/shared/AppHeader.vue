@@ -1,55 +1,33 @@
 <template>
-  <header class="container my-4 md:my-6 mx-auto px-2 md:px-4 flex justify-between">
-    <nav class="w-full">
-      <ul class="space-x-4 md:space-x-12 flex items-center text-base md:text-lg">
-        <router-link
-          to="/"
-          tag="li"
-          class="cursor-pointer"
-        >
-          <img
-            src="@/assets/images/logo.svg"
-            alt="Logo"
-            class="w-8 transform hover:scale-125 transition-all duration-200"
-          >
-        </router-link>
-        <router-link
-          to="/"
-          tag="li"
-        >
-          Main
-        </router-link>
-        <router-link
-          to="/about"
-          tag="li"
-        >
-          About us
-        </router-link>
-      </ul>
-    </nav>
-    <div>
-      <router-link
-        to="/beta-access"
-        class="px-6 md:px-12 py-3 font-semibold text-white rounded-lg
-        shadow-xl bg-green-500 hover:bg-green-800 transition duration-200 ease-in"
+  <footer class="container mx-auto px-2 md:px-4 flex justify-between items-center">
+    <router-link to="/">
+      <img
+        src="@/assets/images/logo.svg"
+        alt="Logo"
+        class="w-8 transform transition-all duration-200 hover:scale-125"
       >
-        Logout
-      </router-link>
-      <router-link
-        to="/beta-access"
-        class="px-6 md:px-12 py-3 font-semibold text-white rounded-lg
-        shadow-xl bg-green-500 hover:bg-green-800 transition duration-200 ease-in"
-      >
-        Login
-      </router-link>
-    </div>
-  </header>
+    </router-link>
+    <h3 class="font-semibold">
+      Auth Guard
+    </h3>
+    <ul class="m-2 p-2 md:p-5 space-x-2 md:space-x-6 flex text-xl text-center text-white">
+      <li>
+        <a href="#" class="p-2 fa fa-google bg-google duration-200 ease-in hover:bg-opacity-50" />
+      </li>
+      <li>
+        <a href="#" class="p-2 fa fa-twitter bg-twitter duration-200 ease-in hover:bg-opacity-50" />
+      </li>
+      <li>
+        <a href="#" class="p-2 fa fa-linkedin bg-linkedin duration-200 ease-in hover:bg-opacity-50" />
+      </li>
+    </ul>
+  </footer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'AppHeader'
+  name: 'AppFooter'
 })
 </script>

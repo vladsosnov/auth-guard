@@ -25,8 +25,10 @@
         </h2>
         <form
           class="w-full"
+          @submit.prevent="login"
         >
           <input
+            v-model="accessCode"
             placeholder="Your code..."
             type="password"
             minlength="6"
@@ -38,10 +40,12 @@
             type="submit"
             class="w-full mb-2 py-3 font-semibold text-white rounded-lg
             shadow-xl bg-green-500 hover:bg-green-800 transition duration-200 ease-in"
+            :class="{ 'bg-green-800': accessCode.length >= 6}"
           >
             Login
           </button>
           <span
+            v-if="logInStatus === 'failed'"
             class="text-red-500 font-semibold"
           >
             The code is incorrect!
@@ -56,6 +60,24 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'BetaAccess'
+  name: 'BetaAccess',
+  data () {
+    return {
+      accessCode: ''
+    }
+  },
+  computed: {
+    logInStatus (): string {
+      return this.$store.getters.logInStatus
+    }
+  },
+  methods: {
+    login () {
+      this.$store
+        .dispatch('login', this.accessCode)
+        .then(() => this.$router.push('/'))
+        .catch(err => console.log(err))
+    }
+  }
 })
 </script>

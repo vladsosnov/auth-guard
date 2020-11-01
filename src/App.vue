@@ -1,7 +1,12 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="h-screen flex flex-col justify-between bg-pink-100"
+  >
     <app-header />
-    <router-view />
+    <transition name="zoom">
+      <router-view />
+    </transition>
     <app-footer />
   </div>
 </template>
@@ -26,5 +31,27 @@ export default Vue.extend({
 
 #app {
   font-family: 'Roboto', sans-serif;
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-name: zoom;
+}
+
+.zoom-leave-active {
+  animation-direction: reverse;
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 </style>
